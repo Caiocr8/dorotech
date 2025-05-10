@@ -18,4 +18,11 @@ public class ProductServiceImpl implements ProductService{
         var entity = this.productRepository.save(domain.createProductEntity());
         return  domain.toProductDomain(entity);
     }
+
+    @Override
+    public ProductDomain getProduct(Long id) {
+       return ProductDomain.builder()
+       .build().toProductDomain(this.productRepository.findById(id).get());
+        
+    }
 }

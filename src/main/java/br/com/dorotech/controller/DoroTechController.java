@@ -1,10 +1,10 @@
 package br.com.dorotech.controller;
 
 import br.com.dorotech.controller.request.ProductRequest;
+import br.com.dorotech.controller.response.ProductResponse;
 import br.com.dorotech.service.ProductService;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -34,8 +34,9 @@ public class DoroTechController {
         return "delete product";
     }
 
-    @GetMapping("/id")
-    public String getProductById(){
-        return "get product by id";
+    @GetMapping("/{id}")
+    public ProductResponse getProductById(@PathVariable Long id){
+        return ProductResponse.builder().build()
+        .toProductResponse(this.productService.getProduct(id));
     }
 }
