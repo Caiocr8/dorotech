@@ -20,7 +20,7 @@ public class DoroTechController {
 
     @PostMapping
     public String create(@RequestBody  ProductRequest productRequest) {
-       this.productService.create();
+       this.productService.create(productRequest.createProductDomain());
         return "product created with success";
     }
 

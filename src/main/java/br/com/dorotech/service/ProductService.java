@@ -1,4 +1,7 @@
 package br.com.dorotech.service;
+
+import br.com.dorotech.service.domain.ProductDomain;
+
 public interface ProductService {
-    String create();
+    ProductDomain create(ProductDomain domain);
 }
